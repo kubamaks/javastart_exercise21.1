@@ -1,0 +1,34 @@
+Treść zadania
+
+Stwórz aplikację internetową w Spring MVC, która będzie służyła do prezentacji produktów.
+
+Produkt posiada nazwę, cenę i kategorię. Dostępne kategorie to:
+
+    Art. spożywcze
+    Art. gosp. domowego
+    Inne
+
+    Na stronie głównej (localhost:8080) wyświetlane są linki:
+        wyświetl wszystkie produkty – prowadzi do strony gdzie jest lista wszystkich produktów
+        wyświetl produkty z kategorii art. spożywcze – prowadzi do strony gdzie jest lista wszystkich produktów spożywczych
+        analogicznie stwórz podstrony dla art. gosp. domowego i „inne”
+    Na stronach z listami produktów, na dole, pod listą produktów wyświetlana jest suma ich cen
+
+Wykonaj zadanie przekazując odpowiednią kategorię w adresie strony. Np: localhost:8080/lista?kategoria=spozywcze wyświetla art. spożywcze, a localhost:8080/lista?kategoria=domowe wyświetla art. gosp. domowego.
+
+Niedopuszczalne rozwiązanie to umieszczenie każdej listy pod osobnym adresem:
+
+    localhost:8080/domowe
+    localhost:8080/spożywcze
+    itd.
+
+Utwórz również możliwość dodawania nowych produktów z poziomu przeglądarki. Użyj do tego celu formularza. Umieść go w dowolnym, wybranym przez siebie miejscu.
+
+Nie zapomnij o dodaniu danych testowych.
+Punktacja:
+
+    strona główna z linkami - 0,5 pkt
+    wyświetlanie wszystkich produktów wraz z sumą cen - 0,5 pkt
+    lista produktów tylko z wybranej kategorii wraz z sumą cen - 1 pkt
+    dodawanie produktów - 1 pkt
+
