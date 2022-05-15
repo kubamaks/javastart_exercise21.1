@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bazar Obywatelski</title>
+</head>
+<body>
+<h2>Witaj</h2>
+<h3>Bazar Obywatelski umożliwia przeglądanie przedmiotów wystawianych na sprzedaż przez innych użytkowników</h3>
+<h4>Wybierz listę artykułów które cię interesują:</h4>
+<a th:href="@{|/produkty|}">Wszyskie</a><br/>
+<a th:href="@{|/produkty?kategoria=${spozywcze.tag}|}"
+   th:text="${T(pl.km.exercise211.Category).GLOCERIES.description}">Art. spożywcze</a><br/>
+<a th:href="@{|/produkty?kategoria=${domowe.tag}|}"
+   th:text="${T(pl.km.exercise211.Category).HOUSEHOLD.description}">Art. gosp. domowego</a><br/>
+<a th:href="@{|/produkty?kategoria=${inne.tag}|}"
+   th:text="${T(pl.km.exercise211.Category).OTHER.description}">Inne</a><br/>
+<div>
+    <br/>
+    <p>Poniżej link do formularza gdzie możesz dodać swoje arykuły :).</p>
+    <a th:href="@{/dodaj}">Dodawanie nowych artykułów</a>
+</div>
+</body>
+</html>

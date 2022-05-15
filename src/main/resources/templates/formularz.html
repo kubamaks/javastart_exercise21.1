@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BO:Dodaeanie artykułów</title>
+</head>
+<body>
+<form th:action="@{/zapisz}" method="post" th:object="${product}">
+    <input type="text" th:field="*{name}" placeholder="nazwa"><br/>
+    <input type="number" step="0.01" th:field="*{price}" placeholder="cena w PLN"><br/>
+    <select name="category">
+        <option th:each="cat : ${T(pl.km.exercise211.Category).values()}"
+                th:value="${cat}" th:text="${cat.description}"></option>
+    </select>
+    <button type="submit">Dodaj artykuł</button>
+</form>
+
+</body>
+</html>

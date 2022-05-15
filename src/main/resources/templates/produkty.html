@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+</head>
+<body>
+<div th:unless="${category}">
+    <h1>Lista wszystkich artykułów</h1>
+</div>
+<div th:if="${category}">
+<div th:switch="${category.tag}">
+    <h1 th:case="${T(pl.km.exercise211.Category).GLOCERIES.tag}" th:text="'Lista artykułów spożywczych'"></h1>
+    <h1 th:case="${T(pl.km.exercise211.Category).HOUSEHOLD.tag}" th:text="'Lista artykułów gospodarstwa domowego'"></h1>
+    <h1 th:case="${T(pl.km.exercise211.Category).OTHER.tag}" th:text="'Lista artykułów z kategorii inne'"></h1>
+</div>
+</div>
+<ul>
+    <li th:each="prod: ${products}" th:text="|Nazwa: ${prod.name} Cena: ${prod.price}zł Kategoria: ${prod.category.description}|"></li>
+</ul>
+<p th:text="|Suma cen wyświetlonych produktów: ${priceSum}zł|"></p>
+<a th:href="@{/}">Strona główna</a>
+</body>
+</html>
