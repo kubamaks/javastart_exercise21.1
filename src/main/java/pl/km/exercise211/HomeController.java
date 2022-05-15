@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 @Controller
 class HomeController {
     private final ProductService productService;
+    private final String updateDate = "May 15th'22";
 
     HomeController(ProductService productService) {
         this.productService = productService;
@@ -29,7 +31,7 @@ class HomeController {
                         Model model) {
         Category category = Category.fromTag(categoryTag);
         Collection<Product> products = productService.findByCategory(category);
-        double priceSum = productService.getTotalPrice(products);
+        BigDecimal priceSum = productService.getTotalPrice(products);
         model.addAttribute("products", products);
         model.addAttribute("priceSum", priceSum);
         model.addAttribute("category", category);

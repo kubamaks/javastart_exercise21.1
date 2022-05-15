@@ -2,6 +2,7 @@ package pl.km.exercise211;
 
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 @Service
@@ -22,10 +23,10 @@ class ProductService {
         }
     }
 
-    public double getTotalPrice(Collection<Product> products) {
+    public BigDecimal getTotalPrice(Collection<Product> products) {
         return products.stream()
                 .map(Product::getPrice)
-                .reduce(0.0, Double::sum);
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public void addProduct(Product product) {

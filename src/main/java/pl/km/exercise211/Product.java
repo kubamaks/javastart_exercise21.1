@@ -1,14 +1,16 @@
 package pl.km.exercise211;
 
+import java.math.BigDecimal;
+
 class Product {
     private String name;
-    private double price;
+    private BigDecimal price;
     private Category category;
 
     public Product() {
     }
 
-    public Product(String name, double price, Category category) {
+    public Product(String name, BigDecimal price, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;
@@ -22,11 +24,11 @@ class Product {
         this.name = name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
