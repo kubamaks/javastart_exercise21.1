@@ -23,6 +23,10 @@ class ProductService {
         }
     }
 
+    public Collection<Product> findAll() {
+        return productRepository.findAll();
+    }
+
     public BigDecimal getTotalPrice(Collection<Product> products) {
         return products.stream()
                 .map(Product::getPrice)

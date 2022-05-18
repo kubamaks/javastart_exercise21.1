@@ -27,6 +27,6 @@ enum Category {
                 return cat;
             }
         }
-        return null;
+        throw new NullPointerException("Unknown categoryTag");
     }
 }

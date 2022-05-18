@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista produktów</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body>
+<div id="container">
+    <div th:replace="commonElements::Header"></div>
+    <div id="middle">
+        <div th:unless="${category}">
+            <h1>Lista wszystkich artykułów</h1>
+        </div>
+        <div th:if="${category}">
+                <h1 th:text="${category.description}"></h1>
+
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Nazwa</td>
+                <td>Cena w PLN</td>
+                <td>Kategoria</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="prod: ${products}">
+                <td th:text="${prod.name}"></td>
+                <td id="price-column" th:text="${prod.price}"></td>
+                <td th:text="${prod.category.description}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <p th:text="|Suma cen wyświetlonych produktów: ${priceSum}zł|"></p>
+        <a th:href="@{/}">Strona główna</a>
+    </div>
+    <div th:replace="commonElements::Footer"></div>
+</div>
+</body>
+</html>
