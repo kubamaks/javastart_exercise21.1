@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bazar Obywatelski</title>
+</head>
+
+    <link rel="stylesheet" href="styles.css">
+
+<body>
+<div id="container">
+    <div th:replace="commonElements::Header"></div>
+    <div id="middle">
+        <h2 class="text-center">Witaj na naszej stronie :)</h2><br/>
+        <h3>Bazar Obywatelski umożliwia przeglądanie przedmiotów wystawianych na sprzedaż przez innych użytkowników</h3><br/>
+        <h4>Wybierz listę artykułów które cię interesują:</h4>
+        <a th:href="@{|/produkty|}">Wszyskie</a><br/>
+        <a th:href="@{/produkty(kategoria=${T(pl.km.exercise211.Category).GLOCERIES.tag})}"
+           th:text="${T(pl.km.exercise211.Category).GLOCERIES.description}">Art. spożywcze</a><br/>
+        <a th:href="@{/produkty(kategoria=${T(pl.km.exercise211.Category).HOUSEHOLD.tag})}"
+           th:text="${T(pl.km.exercise211.Category).HOUSEHOLD.description}">Art. gosp. domowego</a><br/>
+        <a th:href="@{/produkty(kategoria=${T(pl.km.exercise211.Category).OTHER.tag})}"
+           th:text="${T(pl.km.exercise211.Category).OTHER.description}">Inne</a><br/>
+        <div>
+            <br/>
+            <p>Poniżej link do formularza gdzie możesz dodać swoje arykuły :).</p>
+            <a th:href="@{/dodaj}">Dodawanie nowych artykułów</a>
+        </div>
+    </div>
+    <div th:replace="commonElements::Footer"></div>
+</div>
+</body>
+</html>

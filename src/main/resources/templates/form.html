@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BO:Dodaeanie artykułów</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+<div id="container">
+    <div th:replace="commonElements::Header"></div>
+    <div id="middle">
+        <h2 class="text-center"><br/>Bazar Obywateski - dodawanie artykułu<br/></h2>
+        <form th:action="@{/zapisz}" method="post" th:object="${product}">
+            <label for="name" class="form-label fw-lighter">nazwa</label>
+            <input id="name" type="text" th:field="*{name}" class="form-control text-center" placeholder="nazwa">
+            <label for="price" class="form-label fw-lighter">cena w PLN</label>
+            <input id="price" type="number" step="0.01" min="0.0" th:field="*{price}" class="form-control text-center"
+                   placeholder="1.25">
+            <label for="category" class="form-label fw-lighter">kategoria</label>
+            <select name="category" id="category" class="form-control">
+                <option th:each="cat : ${T(pl.km.exercise211.Category).values()}"
+                        th:value="${cat}" th:text="${cat.description}"></option>
+            </select>
+            <button type="submit" id="submit" class="btn btn-secondary">dodaj artykuł</button>
+        </form>
+        <div id="link">
+            <a th:href="@{/}">Strona główna</a>
+        </div>
+    </div>
+    <div th:replace="commonElements::Footer"></div>
+</div>
+</body>
+</html>
